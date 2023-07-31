@@ -1,0 +1,54 @@
+@mixin flex(
+  $justify-content: flex-start,
+  $align-items: flex-start,
+  $flex-wrap: wrap,
+  $flex-direction: row
+) {
+  display: flex;
+  justify-content: $justify-content;
+  align-items: $align-items;
+  flex-wrap: $flex-wrap;
+  flex-direction: $flex-direction;
+}
+
+@mixin size($width: width, $height: $width) {
+  width: $width;
+  height: $height;
+}
+
+@mixin hide() {
+  visibility: hidden;
+  opacity: 0;
+}
+
+@mixin show() {
+  visibility: visible;
+  opacity: 1;
+}
+
+@mixin effectClass($class) {
+  width: calc(100% / 3 - 2rem);
+  position: relative;
+  cursor: pointer;
+  transition: 0.25s ease;
+  &::after {
+    position: absolute;
+    content: "";
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: $third-color;
+    transition: 0.25s ease;
+    z-index: -1;
+  }
+  &:hover {
+    transform: translate(-1rem, -1rem);
+    &::after {
+      transform: translate(1rem, 1rem);
+    }
+    #{$class} {
+      @include show();
+    }
+  }
+}

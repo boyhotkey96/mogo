@@ -1,0 +1,107 @@
+.message {
+  padding: 5rem 0;
+  background-color: #f8f8f8;
+  --marginInsideIcon: 5.5rem;
+  --marginOutsideIcon: 2.5rem;
+  &__container {
+    @include flex(space-between, center, nowrap);
+  }
+  &__item {
+    padding: 0 2rem;
+  }
+  &__icon {
+    font-size: 3rem;
+    cursor: pointer;
+    &--left {
+      margin-left: var(--marginOutsideIcon);
+      margin-right: var(--marginInsideIcon);
+    }
+    &--right {
+      margin-left: var(--marginInsideIcon);
+      margin-right: var(--marginOutsideIcon);
+    }
+    &message {
+      font-size: 6.5rem;
+      @include flex(center, center, nowrap);
+      @include size(14.5rem);
+      color: $third-color;
+      border: 3px solid $third-color;
+      padding: 4rem;
+    }
+  }
+  &__content {
+    @include flex(space-between, null, nowrap, column);
+    flex-grow: 1;
+    margin-left: 6rem;
+  }
+  &__text {
+    font-size: 2.2rem;
+    font-family: $secondary-font;
+    font-style: italic;
+    line-height: 1.5;
+    margin: 0;
+    margin-bottom: 2rem;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  &__author {
+    padding-left: 7rem;
+    font-family: $third-font;
+    color: black;
+    font-size: 2.4rem;
+    margin: 0;
+    position: relative;
+    &::after {
+      position: absolute;
+      content: "";
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      @include size(6rem, 3px);
+      background-color: $primary-color;
+    }
+  }
+  @media screen and (min-width: 768px) and (max-width: 1023px) {
+    --marginInsideIcon: 3rem;
+  }
+  @media screen and (max-width: 767px) {
+    --marginInsideIcon: 0.5rem;
+    --marginOutsideIcon: 2rem;
+    &__item {
+      @include flex(null, center, null, column);
+    }
+    &__iconmessage {
+      @include size(10rem);
+      font-size: 5.5rem;
+    }
+    &__content {
+      margin-left: 0;
+      margin-top: 2rem;
+    }
+    &__text {
+      font-size: 1.6rem;
+    }
+    &__author {
+      padding-left: 5rem;
+      font-size: 1.8rem;
+      &::after {
+        width: 4rem;
+      }
+    }
+  }
+}
+
+// .slick-initialized.slick-slider {
+//   display: flex;
+//   align-items: center;
+// }
+.slick-initialized .slick-slide {
+  display: flex;
+  align-items: center;
+}
+.slick-disabled {
+  cursor: not-allowed;
+}

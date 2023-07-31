@@ -1,0 +1,23 @@
+.logo {
+  padding: 5rem 0;
+  background-color: #f8f8f8;
+  &__list {
+    @include flex(space-between, center);
+  }
+  &__item {
+    @include size(15rem);
+  }
+  &__image {
+    width: 100%;
+  }
+  @media screen and (max-width: 1023px) {
+    &__item {
+      @include size(12rem);
+    }
+  }
+  @media screen and (max-width: 319px) {
+    &__list {
+      justify-content: center;
+    }
+  }
+}
